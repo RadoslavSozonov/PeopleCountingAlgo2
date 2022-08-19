@@ -1,4 +1,3 @@
-import argparse
 import io
 from flask import Flask, request
 from PIL import Image
