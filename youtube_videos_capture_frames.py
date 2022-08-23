@@ -1,3 +1,5 @@
+import os
+
 from vidgear.gears import CamGear
 import requests
 import datetime
@@ -134,7 +136,7 @@ class FrameExtraction:
     def write_to_directory(self, result, counter, cropped_image, prev_res, frame):
         # self.threshold = 0.21
         # print(result)
-        if result >= self.threshold:
+        if result >= self.threshold and os.path.getsize('img1.png') > 2000000:
             if result > prev_res[0]:
                 if prev_res[0] < self.threshold:
                     counter += 1
