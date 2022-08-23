@@ -144,7 +144,9 @@ class FrameExtraction:
                 cv2.imwrite(IMAGE, frame)
                 with open(IMAGE, "rb") as f:
                     image_data = f.read()
-                # print(image_data)
+                if os.path.getsize('img1.png') < 2000000:
+                    prev_res[0] = 0
+                    return 0
                 response = requests.post(DETECTION_URL, files={"image": image_data}).json()
                 # print(response)
                 firebase.upload_to_real_time_database({
