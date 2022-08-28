@@ -37,20 +37,34 @@ def get_from_real_time_database():
     for item in res.each():
         list_item.append(item.val())
 
+    return image_filter(list_item)
+
+
+
+def image_filter(list_item):
     prev_time = 100
     filtered = []
+
     for item in list_item:
-        time = item["time"].split(" ")[1].split(":")[1]
-        if int(time) != prev_time and int(time)-1 != prev_time:
-            filtered.append({
-                "cars": item["items"],
-                "time_stamp": item["time"],
-                "data_type": "car",
-                "location": "Centre Parcs Strandhotel",
-                "latitude": "52.3797712",
-                "longitude": "4.5319976"
-            })
+        time = extract_time(item)
+        if int(time) != prev_time and int(time) - 1 != prev_time and int(item["items"]) != 0:
+            filtered.append(config_object(item))
             prev_time = int(time)
 
     return filtered
+
+
+def extract_time(item):
+    return item["time"].split(" ")[1].split(":")[1]
+
+
+def config_object(item):
+    return {
+                "cars": item["items"],
+                "time_stamp": item["time"],
+                "data_type": "people",
+                "location": "Railcam - Zandvoort",
+                "latitude": "52.3758194",
+                "longitude": "4.5306274"
+            }
 
