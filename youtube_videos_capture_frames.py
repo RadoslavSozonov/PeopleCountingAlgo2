@@ -211,7 +211,7 @@ class FrameExtraction:
             pers2 = round(counter2 / white_cells_image2, 4)
         except:
             pers2 = 0
-        if pers2 > 0.25 and pers1 > 0.25:
+        if pers2 > 0.2 and pers1 > 0.2:
             return (pers2 + pers1) / 2
         return 0
 
