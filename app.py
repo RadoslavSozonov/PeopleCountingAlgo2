@@ -6,7 +6,7 @@ import json
 
 from youtube_videos_capture_frames import FrameExtraction
 
-frameExtractor = FrameExtraction(threshold=0.25,
+frameExtractor = FrameExtraction(threshold=0.33,
                                          photo_detail=[[770, 855], [1650, 1920]])
 app = Flask(__name__)
 
