@@ -33,7 +33,7 @@ def getCount():
 @app.route('/start')
 async def start():  # put application's code here
     print("Request received")
-    frameExtractor.capture(url_video="https://www.youtube.com/watch?v=PlAOPMSaV18")
+    frameExtractor.capture(url_video="https://www.youtube.com/watch?v=aJloecQzF48")
     return "Done"
 
 @app.route('/update_photo', methods=["PUT"])
