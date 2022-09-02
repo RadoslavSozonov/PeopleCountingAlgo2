@@ -7,7 +7,7 @@ import json
 from youtube_videos_capture_frames import FrameExtraction
 
 frameExtractor = FrameExtraction(threshold=0.33,
-                                         photo_detail=[[950, 1080], [1650, 1920]])
+                                         photo_detail=[[730, 820], [1590, 1920]])
 app = Flask(__name__)
 
 
@@ -65,7 +65,7 @@ def set_threshold():
 @app.route('/photo_detail', methods=["PUT"])
 def set_photo_details():
     global frameExtractor
-    photo_details = [[0, 150], [1000, 1400]]
+    photo_details = [[730, 820], [1590, 1920]]
     if request.json.get("photo_detail"):
         photo_details = request.json.get("photo_details")
     frameExtractor.set_photo_details(photo_details)
