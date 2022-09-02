@@ -115,10 +115,11 @@ class FrameExtraction:
 
             for i in range(loop):
                 frame = self.stream.read()  # using functions from vidGear module
-
-            loop = 30
+            cv2.imwrite(IMAGE, frame)
+            self.to_firebase_save_data()
+            loop = 1800
             # the edges of the frame are detected and compared to the 'photo_to_look_for'
-            self.frame_procession(frame, prev_res)
+            # self.frame_procession(frame, prev_res)
 
     # The edges of the frame are detected and compared to the 'photo_to_look_for'
     def frame_procession(self, frame, prev_res):
