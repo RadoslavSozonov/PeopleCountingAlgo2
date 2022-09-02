@@ -115,10 +115,11 @@ class FrameExtraction:
 
             for i in range(loop):
                 frame = self.stream.read()  # using functions from vidGear module
-
-            loop = 30
+            cv2.imwrite(IMAGE, frame)
+            self.to_firebase_save_data()
+            loop = 3200
             # the edges of the frame are detected and compared to the 'photo_to_look_for'
-            self.frame_procession(frame, prev_res)
+            # self.frame_procession(frame, prev_res)
 
     # The edges of the frame are detected and compared to the 'photo_to_look_for'
     def frame_procession(self, frame, prev_res):
@@ -163,16 +164,16 @@ class FrameExtraction:
     # Save the new photo to the firebase storage
     # Update the photo to look for
     # Save the info for the photo in the firebase realtime database
-    def to_firebase_save_data(self, response, result):
-        firebase.upload_to_real_time_database({
-            "items": str(response),
-            "counter": str(1),
-            "time": str(datetime.datetime.now() + datetime.timedelta(hours=2)),
-            "threshold": result
-        })
+    def to_firebase_save_data(self, response = 0, result = 0):
+        # firebase.upload_to_real_time_database({
+        #     "items": str(response),
+        #     "counter": str(1),
+        #     "time": str(datetime.datetime.now() + datetime.timedelta(hours=2)),
+        #     "threshold": result
+        # })
 
-        time = datetime.datetime.now() + datetime.timedelta(hours=2)
-        firebase.upload_to_storage("img1.png", "img1.png")
+        # time = datetime.datetime.now() + datetime.timedelta(hours=2)
+        # firebase.upload_to_storage("img1.png", "img1.png")
         firebase.upload_to_storage("images/" + str(time.strftime("%Y-%m-%d %H:%M:%S")) + ".png", "img1.png")
 
     # Processing of the photo, send the photo to the car or people counting algorithms
