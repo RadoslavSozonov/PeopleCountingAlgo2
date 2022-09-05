@@ -1,14 +1,14 @@
 import pyrebase
 
 config = {
-    "apiKey": "AIzaSyCAvnQjaKVj_5AhqIzz5RgAnQ07cCkRBrA",
-    "authDomain": "livecamerazandvoortstation.firebaseapp.com",
-    "projectId": "livecamerazandvoortstation",
-    "storageBucket": "livecamerazandvoortstation.appspot.com",
-    "messagingSenderId": "167375040356",
-    "appId": "1:167375040356:web:84d2c26b2baf6dd3255471",
-    "measurementId": "G-X3D12E4EGN",
-    "databaseURL": "https://livecamerazandvoortstation-default-rtdb.europe-west1.firebasedatabase.app/"
+    "apiKey": "AIzaSyAqWkRyXczSv9Df3nRJf5YaVdJP-kT2krQ",
+    "authDomain": "livecamerazandvoortstation2.firebaseapp.com",
+    "projectId": "livecamerazandvoortstation2",
+    "storageBucket": "livecamerazandvoortstation2.appspot.com",
+    "messagingSenderId": "803951266182",
+    "appId": "1:803951266182:web:9fb71777edf07eae750407",
+    "measurementId": "G-S88YF16DCH",
+    "databaseURL": "https://livecamerazandvoortstation2-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
 firebase = pyrebase.initialize_app(config=config)
